@@ -24,7 +24,7 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <header class="d-flex justify-content-center align-item-center m-4">
+    <header class="d-flex justify-content-center align-item-center p-4 border-bottom border-1 border-dark">
         <img src="img/Logo.png" alt="Logo Boolean" class="mx-3">
         <h1>To do list</h1>
     </header>
@@ -34,7 +34,7 @@
                 <input type="text" class="form-control" placeholder="Inserisci una nuova Task" v-model='newTaskText' @keyup.enter="addNewTask">
                 <button class="btn btn-outline-success" type="button" @click="addNewTask">Add</button>
               </div>
-            <ul class="list-group">
+            <ul class="list-group bg-secondary p-4">
                 <li class="list-group-item d-flex justify-content-between"  v-for="(task,i) in tasks">
                     <div v-if="task.done" :class="textDecorationClass" @click="doneTask(i)">{{ task.text }}</div>
                     <div v-else @click="doneTask(i)" >{{ task.text }}</div>
