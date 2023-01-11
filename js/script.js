@@ -80,7 +80,9 @@ methods:{
     deleteTask(index){
         this.tasks.splice(index,1);
     },
-
+    doneTask(index){  
+        this.tasks[index].done = !this.tasks[index].done;
+    }
     
 }
 
