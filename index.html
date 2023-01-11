@@ -24,12 +24,23 @@
     <script defer src="js/script.js"></script>
 </head>
 <body>
-    <header>
-        <img src="" alt="">
+    <header class="d-flex justify-content-center align-item-center m-4">
+        <img src="img/Logo.png" alt="Logo Boolean" class="mx-3">
+        <h1>To do list</h1>
     </header>
-    <main>
+    <main class="w-50 mx-auto my-5">
         <div id="root">
-
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Inserisci una nuova Task" v-model='newTaskText'>
+                <button class="btn btn-outline-success" type="button" @click="addNewTask">Add</button>
+              </div>
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between"  v-for="(task,i) in tasks">
+                    <div v-if="task.done" :class="textDecorationClass">{{ task.text }}</div>
+                    <div v-else>{{ task.text }}</div>
+                    <i class="fa-solid fa-trash-can" @click="deleteTask(i)"></i>
+                </li>
+            </ul>
         </div>
     </main>
 </body>

@@ -37,9 +37,53 @@ Bonus:
 const app = Vue.createApp({
 data(){
     return{
-
+      tasks: [
+        {
+            text: 'Fare la spesa',
+            done : false,
+        },
+        {
+            text: 'Tagliare i capelli',
+            done : false,
+        },
+        {
+            text: 'Passare in tintoria',
+            done : false,
+        },
+        {
+            text: 'Prendere i bambini a scuola',
+            done : true,
+        },
+        {
+            text: 'Comprae un alpaca',
+            done : false,
+        },
+      ],
+      newTaskText : '',
+      textDecorationClass : 'text-decoration-line-through',
     }
 },
+computed:{
+   newTask(){
+    let newTaskObject;
+   return newTaskObject = {
+        text: this.newTaskText,
+        done : false,
+    }
+   }
+},
+methods:{
+    addNewTask(){
+        this.tasks.push(this.newTask);
+        this.newTaskText = '';
+    },
+    deleteTask(index){
+        this.tasks.splice(index,1);
+    },
+
+    
+}
+
 });
 
 app.mount('#root');
